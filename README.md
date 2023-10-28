@@ -47,16 +47,17 @@ id_Carta
 
 ### Vistas
 - *Home (Mis Mazos)*  
-Muestra los decks en forma de CARDS con una imagen y un display de informacion
-al Clickear Navega a Details
+  Muestra los decks en forma de CARDS con una imagen y un display de informacion
+  al Clickear Navega a Details    
+  Deberia tener un Boton para Agregar Mazo  y otro para Quitar Mazo por ID Mazo.
   
 
 - *Details (Mazo)*  
-Muestra las cartas del mazo en forma de Cardimagen y la informacion del mazo
-Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas) , Desde Mi Coleccion (redirige a Mi coleccion)
-boton en la esquina superior de la carta para quitarla del mazo
-Boton Toggle para indicar Estado Mazo (Privado/Publico)
-cantMax cartas? restantes?
+  Muestra las cartas del mazo en forma de CardImage y la informacion del mazo
+  Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas) , Desde Mi Coleccion (redirige a Mi coleccion)
+  boton en la esquina superior de la carta para quitarla del mazo
+  Boton Toggle para indicar Estado Mazo (Privado/Publico)
+  cantMax cartas? restantes?
   
 
 - *Mi perfil*  
