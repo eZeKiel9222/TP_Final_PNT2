@@ -53,10 +53,10 @@ id_Carta
   
 
 - *Details (Mazo)*  
-  Muestra las cartas del mazo en forma de CardImage y la informacion del mazo
-  Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas) , Desde Mi Coleccion (redirige a Mi coleccion)
-  boton en la esquina superior de la carta para quitarla del mazo
-  Boton Toggle para indicar Estado Mazo (Privado/Publico)
+  Muestra las cartas del mazo en forma de CardImage y la informacion del mazo  
+  Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas) , Desde Mi Coleccion (redirige a Mi coleccion)  
+  boton en la esquina superior de la carta para quitarla del mazo  
+  Boton Toggle para indicar Estado Mazo (Privado/Publico)  
   cantMax cartas? restantes?
   
 
@@ -65,8 +65,8 @@ Muestra la informacion de usuario (Username / Email) ?
   
 
 - *Mi coleccion*  
-Parecido a Mazo, muestra las cartas del mazo en forma de Cardimagen
-Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas)
+Parecido a Mazo, muestra las cartas del mazo en forma de Cardimagen    
+Boton para agregar carta ---> Desde Busqueda en Api(redirige a vista Buscar Cartas)  
 boton en la esquina superior de la carta para quitarla de la coleccion
   
 
