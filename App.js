@@ -1,19 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, SafeAreaView, TextInput, Image, Dimensions, Button } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import GlobalContext, { defaultShowForm, defaultShowHome } from './services/GlobalContext';
 import UserService from "./services/users";
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
-import GlobalContext, { defaultShowForm } from './services/GlobalContext';
+import Home from './screens/Home';
+import MiColeccion from './screens/MiColeccion';
+import BuscarMazo from './screens/BuscarMazo';
+import BuscarCarta from './screens/BuscarCarta';
 
 export default function App() {
 
   const [users, setUsers] = useState([])
-  const [showLogin, SetShowForm] = useState(defaultShowForm)
+  const [showForm, SetShowForm] = useState(defaultShowForm);
+  const [showHome, SetShowHome] = useState(defaultShowHome);
   const screenWidth = Dimensions.get('window').width;
 
+  const Tab = createMaterialBottomTabNavigator()
+
   const changeForm = () => {
-    SetShowForm(!showLogin)
+    SetShowForm(!showForm)
+  }
+
+  const changeHome = () => {
+    SetShowHome(!showHome)
   }
 
   useEffect(() => {
@@ -24,17 +36,27 @@ export default function App() {
   }, [])
 
   return (
-    <GlobalContext.Provider value={{ SetShowForm, changeForm, screenWidth, users }}>
-      <View style={styles.container}>
-        {
-          showLogin ?
-            //Login
-            <LoginForm />
-            :
-            // REGISTRO
-            <RegisterForm />
-        }
-      </View>
+    <GlobalContext.Provider value={{ SetShowForm, SetShowHome, changeForm, changeHome, screenWidth, users }}>
+      {
+        showHome ?
+          <NavigationContainer>
+            <Tab.Navigator>
+              <Tab.Screen name='Mis mazos' component={Home} />
+              <Tab.Screen name='Mi coleccion' component={MiColeccion} />
+              <Tab.Screen name='Buscar carta' component={BuscarCarta} />
+              <Tab.Screen name='Buscar mazo' component={BuscarMazo} />
+            </Tab.Navigator>
+          </NavigationContainer>
+          :
+          <View style={styles.container}>
+            {
+              showForm ?
+                <LoginForm />
+                :
+                <RegisterForm />
+            }
+          </View>
+      }
     </GlobalContext.Provider>
 
   );
@@ -45,29 +67,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'black',
     alignSelf: 'center',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    borderColor: 'white',
-    padding: 10,
-    backgroundColor: 'black',
-    color: 'white'
-  },
-  background: {
-    backgroundColor: 'black',
-  },
-  text: {
-    color: 'white',
-    fontSize: 20,
-    alignSelf: 'center',
-    margin: 20
-  },
-  containerbuttons: {
-    flex: 1,
-    flexDirection: 'row',
-    alignSelf: 'center',
-    margin: 20
   }
 });
