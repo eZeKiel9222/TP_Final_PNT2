@@ -5,36 +5,6 @@ import GlobalContext from '../../services/GlobalContext';
 import UserService from "../../services/users";
 
 export default RegisterForm = () => {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: 'black',
-      alignSelf: 'center',
-    },
-    input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      borderColor: 'white',
-      padding: 10,
-      backgroundColor: 'black',
-      color: 'white'
-    },
-    background: {
-      backgroundColor: 'black',
-    },
-    text: {
-      color: 'white',
-      fontSize: 20,
-      alignSelf: 'center',
-      margin: 20
-    },
-    containerbuttons: {
-      flexDirection: 'row',
-      alignSelf: 'center',
-      margin: 20
-    }
-  });
 
   const [Registerlogin, OnchangeRegisterLogin] = useState('')
   const [Registerpassword, OnchangeRegisterPassword] = useState('')
@@ -94,3 +64,34 @@ export default RegisterForm = () => {
   )
 
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black',
+    alignSelf: 'center',
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    borderColor: 'white',
+    padding: 10,
+    backgroundColor: 'black',
+    color: 'white'
+  },
+  background: {
+    backgroundColor: 'black',
+  },
+  text: {
+    color: 'white',
+    fontSize: 20,
+    alignSelf: 'center',
+    margin: 20
+  },
+  containerbuttons: {
+    flexDirection: 'row',
+    alignSelf: 'center',
+    margin: 20
+  }
+});
