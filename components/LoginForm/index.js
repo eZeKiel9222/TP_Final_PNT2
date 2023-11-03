@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
 import GlobalContext from '../../services/GlobalContext';
+import FingerprintAuthComponent from '../LoginForm/FingerprintAuthComponent'
 
 export default LoginForm = () => {
 
@@ -61,6 +62,8 @@ export default LoginForm = () => {
           <Button title="Register" onPress={changeForm} />
           <Text>   </Text>
           <Button title="Home" onPress={changeHome} />
+          <Text>   </Text>
+          <FingerprintAuthComponent />
         </View>
       </View>
     </View>
