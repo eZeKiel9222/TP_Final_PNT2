@@ -1,7 +1,8 @@
 import { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TextInput, Image, Button } from 'react-native';
+import { Text, View, TextInput, Image, Button } from 'react-native';
 import GlobalContext from '../../services/GlobalContext';
 import FingerprintAuthComponent from '../LoginForm/FingerprintAuthComponent'
+import styles from '../../styles/styles.js'
 
 export default LoginForm = () => {
 
@@ -70,34 +71,3 @@ export default LoginForm = () => {
   )
 
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    alignSelf: 'center',
-  },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
-    borderColor: 'white',
-    padding: 10,
-    backgroundColor: 'black',
-    color: 'white'
-  },
-  background: {
-    backgroundColor: 'black',
-  },
-  text: {
-    color: 'white',
-    fontSize: 20,
-    alignSelf: 'center',
-    margin: 20
-  },
-  containerbuttons: {
-    flexDirection: 'row',
-    alignSelf: 'center',
-    margin: 20
-  }
-});

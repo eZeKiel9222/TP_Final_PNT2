@@ -1,11 +1,7 @@
-import { View, Text } from 'react-native';
+import Header from '../../components/Header/index.js';
 
 export default ({ navigation }) => {
   return (
-    <View>
-      <Text> </Text>
-      <Text> </Text>
-      <Text>Buscar Carta</Text>
-    </View>
+    <Header name='Buscar carta'/>
   )
 }
