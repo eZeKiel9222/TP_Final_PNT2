@@ -10,10 +10,13 @@ import Home from './screens/Home';
 import MiColeccion from './screens/MiColeccion';
 import BuscarMazo from './screens/BuscarMazo';
 import BuscarCarta from './screens/BuscarCarta';
+import Login from './screens/Login';
+
 
 export default function App() {
 
   const [users, setUsers] = useState([])
+  const [user, setUser] = useState()
   const [showForm, SetShowForm] = useState(defaultShowForm);
   const [showHome, SetShowHome] = useState(defaultShowHome);
   const screenWidth = Dimensions.get('window').width;
@@ -36,29 +39,26 @@ export default function App() {
   }, [])
 
   return (
-    <GlobalContext.Provider value={{ SetShowForm, SetShowHome, changeForm, changeHome, screenWidth, users }}>
-      {
-        showHome ?
+    <GlobalContext.Provider value={{ SetShowForm, SetShowHome, changeForm, changeHome, screenWidth, users , setUser, showForm}}>
           <NavigationContainer>
+            {
+              user ? 
             <Tab.Navigator>
               <Tab.Screen name='Mis mazos' component={Home} />
               <Tab.Screen name='Mi coleccion' component={MiColeccion} />
               <Tab.Screen name='Buscar carta' component={BuscarCarta} />
               <Tab.Screen name='Buscar mazo' component={BuscarMazo} />
             </Tab.Navigator>
+            :
+            <Tab.Navigator>
+              <Tab.Screen name='Login' component={Login}/>
+              <Tab.Screen name='Buscar carta' component={BuscarCarta} />
+              <Tab.Screen name='Buscar mazo' component={BuscarMazo} />
+            </Tab.Navigator>
+          }
           </NavigationContainer>
-          :
-          <View style={styles.container}>
-            {
-              showForm ?
-                <LoginForm />
-                :
-                <RegisterForm />
-            }
-          </View>
-      }
     </GlobalContext.Provider>
-
+    
   );
 }
 
