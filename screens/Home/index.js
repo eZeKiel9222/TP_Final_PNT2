@@ -15,18 +15,20 @@ export default ({ navigation }) => {
     useCallback(() => {
       MazosService.getMazos()
         .then(data => {
-          setMazos(data)
+          console.log(data)
+          setMazos(data.message);
         })
+        .catch(error => {
+          console.error('Error fetching mazos:', error);
+        });
     }, [])
   );
 
   return (
     <SafeAreaView>
-      <Header name='Home' />
+      <Header name='Home' styleHeader={styles.title} styleDivider={styles.divider}/>
       <Text>  </Text>
-      <View>
-        <Button styles={styles.containerbuttons} title="Ir a login" onPress={changeHome} />
-      </View>
+
       <Text>  </Text>
       <Text>  </Text>
       {mazos ? (
