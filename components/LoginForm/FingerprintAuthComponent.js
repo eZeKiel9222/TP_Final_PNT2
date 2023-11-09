@@ -25,13 +25,13 @@ const FingerprintAuthComponent = () => {
                 borderWidth: 2,
                 borderColor: 'white',
                 borderRadius: 30,
-              }}
-              containerStyle={{
-                width: 100,
-                marginHorizontal: 10,
-                marginVertical: 10,
-              }}
-              titleStyle={{ fontWeight: 'bold' }}  />
+            }}
+                containerStyle={{
+                    width: 100,
+                    marginHorizontal: 10,
+                    marginVertical: 10,
+                }}
+                titleStyle={{ fontWeight: 'bold' }} />
         </View>
     );
 };
