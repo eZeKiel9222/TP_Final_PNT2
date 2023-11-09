@@ -8,12 +8,13 @@ import MazosService from "../../services/mazos";
 
 export default ({ navigation }) => {
 
-  const { changeHome } = useContext(GlobalContext)
+  const { changeHome, user } = useContext(GlobalContext)
   const [mazos, setMazos] = useState(null)
-
+  const {userInfo} = user
+  console.log(userInfo)
   useFocusEffect(
     useCallback(() => {
-      MazosService.getMazos()
+      MazosService.getMazosByIdUser(userInfo.id)
         .then(data => {
           console.log(data)
           setMazos(data.message);
@@ -25,7 +26,7 @@ export default ({ navigation }) => {
   );
 
   return (
-    <SafeAreaView>
+    <View>
       <Header name='Home' styleHeader={styles.title} styleDivider={styles.divider}/>
       <Text>  </Text>
 
@@ -35,13 +36,13 @@ export default ({ navigation }) => {
         mazos.map((mazo, index) => (
         <View>
           {/* <Text>Mazo: {index} - {mazo.nombreMazo}</Text> */}
-          <Text>Mazo: {index} - {mazo.fullName}</Text>
+          <Text>Mazo: {index} - {mazo.nombreMazo} - {mazo.ModoJuego.nombreModo}</Text>
         </View>
       ))) : (
         <Text>No se encontraron datos.</Text>
       )
       }
 
-    </SafeAreaView>
+    </View>
   )
 }
