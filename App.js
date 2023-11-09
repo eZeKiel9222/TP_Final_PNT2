@@ -18,7 +18,6 @@ export default function App() {
   const [users, setUsers] = useState([])
   const [user, setUser] = useState()
   const [showForm, SetShowForm] = useState(defaultShowForm);
-  const [showHome, SetShowHome] = useState(defaultShowHome);
   const screenWidth = Dimensions.get('window').width;
 
   const Tab = createMaterialBottomTabNavigator()
@@ -33,18 +32,15 @@ export default function App() {
 
   useEffect(() => {
     console.log("Aqui lo levanto la primera vez...")
-    UserService.getUsers()
-      .then(data => setUsers(data))
-    console.log(users)
   }, [])
 
   return (
-    <GlobalContext.Provider value={{ SetShowForm, SetShowHome, changeForm, changeHome, screenWidth, users , setUser, showForm}}>
+    <GlobalContext.Provider value={{ SetShowForm, changeForm, changeHome, screenWidth, users , user, setUser, showForm}}>
           <NavigationContainer>
             {
               user ? 
             <Tab.Navigator>
-              <Tab.Screen name='Mis mazos' component={Home} />
+              <Tab.Screen name='Mis Mazos' component={Home} />
               <Tab.Screen name='Mi coleccion' component={MiColeccion} />
               <Tab.Screen name='Buscar carta' component={BuscarCarta} />
               <Tab.Screen name='Buscar mazo' component={BuscarMazo} />

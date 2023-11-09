@@ -5,6 +5,7 @@ import FingerprintAuthComponent from '../LoginForm/FingerprintAuthComponent'
 import styles from '../../styles/styles.js'
 import Header from '../Header/index.js'
 import { Button } from '@rneui/themed';
+import UserService from '../../services/users.js'
 export default LoginForm = ({navigation}) => {
 
   const [Inputlogin, OnchangeLogin] = useState('')
@@ -14,20 +15,17 @@ export default LoginForm = ({navigation}) => {
     const { users , setUser} = useContext(GlobalContext)
 
     const handleLogin = () => {
-
-        const foundUser = users.find((user) => user.username === Inputlogin);
-    
-        if (foundUser) {
-          if (foundUser.password === Inputpassword) {
-            console.log('User found, and the password matches.');
-            setUser(foundUser)
-            navigation.navigate('Mis mazos')
-          } else {
-            alert('User found, but the password does not match.');
-          }
-        } else {
-          alert('User not found');
+       UserService.Login(Inputlogin,Inputpassword).then(data => {
+        console.log(data)
+        if(data.sucess){
+        setUser(data.message)
+        navigation.navigate('Mis Mazos')
+        }else{
+          alert(data.message)
         }
+       }).catch(error => {
+        console.error('Error fetching user:', error);
+      });
       }
 
   return (

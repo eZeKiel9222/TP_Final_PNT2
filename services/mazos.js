@@ -11,8 +11,19 @@ const getMazos = () => {
       }
     });
 };
+const getMazosByIdUser = (id) => {
+  return fetch(`${BASE_URL}/user/${id}`)
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        throw new Error("Error: Not found");
+      }
+    });
+};
 
 
 export default {
-    getMazos
+    getMazos,
+    getMazosByIdUser
 };

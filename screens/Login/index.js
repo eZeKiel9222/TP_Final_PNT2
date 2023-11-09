@@ -16,7 +16,7 @@ export default ({ navigation }) => {
       showForm ?
         <LoginForm navigation={navigation} />
         :
-        <RegisterForm />
+        <RegisterForm navigation={navigation}/>
     }
   </View>
   )
