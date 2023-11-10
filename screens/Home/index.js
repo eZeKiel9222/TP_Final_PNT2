@@ -5,44 +5,31 @@ import GlobalContext from '../../services/GlobalContext';
 import Header from '../../components/Header/index.js';
 import styles from '../../styles/styles.js';
 import MazosService from "../../services/mazos";
+import MazoFlatlist from '../../components/MazoFlatlist/index.js';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import misMazos from './misMazos.js';
+import detalleCarta from './detalleCarta.js'
+import detalleMazo from './detalleMazo.js'
 
 export default ({ navigation }) => {
 
-  const { changeHome, user } = useContext(GlobalContext)
-  const [mazos, setMazos] = useState(null)
-  const {userInfo} = user
-  console.log(userInfo)
-  useFocusEffect(
-    useCallback(() => {
-      MazosService.getMazosByIdUser(userInfo.id)
-        .then(data => {
-          console.log(data)
-          setMazos(data.message);
-        })
-        .catch(error => {
-          console.error('Error fetching mazos:', error);
-        });
-    }, [])
-  );
+  const StackNavigator = createNativeStackNavigator()
 
   return (
-    <View>
-      <Header name='Home' styleHeader={styles.title} styleDivider={styles.divider}/>
-      <Text>  </Text>
+      <StackNavigator.Navigator>
+            <StackNavigator.Screen name='Mazos' component={misMazos} options={
+                  {
+                    headerBackVisible: false,
+                    headerShown:false
+                  }}/>
+            <StackNavigator.Screen name='Detalle Mazo' component={detalleMazo} options={
+                  {
 
-      <Text>  </Text>
-      <Text>  </Text>
-      {mazos ? (
-        mazos.map((mazo, index) => (
-        <View>
-          {/* <Text>Mazo: {index} - {mazo.nombreMazo}</Text> */}
-          <Text>Mazo: {index} - {mazo.nombreMazo} - {mazo.ModoJuego.nombreModo}</Text>
-        </View>
-      ))) : (
-        <Text>No se encontraron datos.</Text>
-      )
-      }
+                  }}/>
+            <StackNavigator.Screen name='Detalle Carta' component={detalleCarta} options={
+                  {
 
-    </View>
+                  }}/>
+      </StackNavigator.Navigator>
   )
 }
