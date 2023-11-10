@@ -1,8 +1,9 @@
+import { URL } from '@env'
+
 //const BASE_URL = "https://us-central1-api-nt2-ejemplo.cloudfunctions.net/app/api/read"
-const BASE_URL = "http://172.20.102.248:8080/api/mazo"
 
 const getMazos = () => {
-  return fetch(`${BASE_URL}`)
+  return fetch(`${URL}/api/mazo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -11,6 +12,7 @@ const getMazos = () => {
       }
     });
 };
+
 
 const getMazo = (id) => {
   return fetch(`${BASE_URL}/${id}`)
@@ -22,8 +24,9 @@ const getMazo = (id) => {
       }
     })
 };
-const  getMazosByIdUser = (id) => {
-  return  fetch(`${BASE_URL}/user/${id}`)
+const getMazosByIdUser = (id) => {
+  return fetch(`${URL}/api/mazo/user/${id}`)
+
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -76,7 +79,6 @@ const cambiarEstadoMazo = (IdMazo, nuevoEstado) => {
   });
 
 }
-
 
 
 
