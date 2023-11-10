@@ -18,7 +18,10 @@ const Header = ({ name, styleHeader, styleDivider }) => {
             <Text> </Text>
             <View style={header.container}>
                 <Text style={styleHeader}>{name}</Text>
-                <View><Button title="Logout" buttonStyle={buttons.logoutButton} onPress={logout} /></View>
+                {
+                    user ? <Button title="Logout" buttonStyle={buttons.logoutButton} onPress={logout} /> : null
+                }
+                
             </View>
             <View style={styleDivider} />
         </View>
