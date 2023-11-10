@@ -7,6 +7,7 @@ import styles from '../../styles/styles.js';
 import MazosService from "../../services/mazos";
 import MazoFlatlist from '../../components/MazoFlatlist/index.js';
 import { Button } from '@rneui/themed';
+import header from '../../styles/header.js';
 
 
 export default ({ navigation }) => {
@@ -16,7 +17,10 @@ export default ({ navigation }) => {
   const {userInfo} = user
   console.log(userInfo)
 
+  const createMazo = () => {
 
+    navigation.navigate('Agregar Mazo',{user:userInfo.id})
+  }
   useFocusEffect(
     useCallback( () => {
         MazosService.getMazosByIdUser(userInfo.id)
@@ -46,8 +50,8 @@ export default ({ navigation }) => {
 
   return (
     <View>
-      <Header name='Home' styleHeader={styles.title} styleDivider={styles.divider}/>
-      <View style={{flexDirection:'row' ,padding:20, backgroundColor:'grey', marginTop:5}}>
+      <Header name='Home' styleHeader={header.title} styleDivider={header.divider}/>
+      <View style={{ padding:20, backgroundColor:'grey', marginTop:5}}>
       <Button title='Agregar Mazo' buttonStyle={{
                 backgroundColor: 'black',
                 borderWidth: 2,
@@ -60,13 +64,11 @@ export default ({ navigation }) => {
                 marginVertical: -10,
                 marginLeft:230
               }}
-              titleStyle={{ fontWeight: 'bold' }} />
+              titleStyle={{ fontWeight: 'bold' }} 
+              onPress={createMazo}/>
       </View>
-      <View style={{marginTop:20}}>
+      <Text></Text>
       <MazoFlatlist mazos={mazos} navigation={navigation}/>
-      </View>
-      <Text>  </Text>
-      <Text>  </Text>
     </View>
   )
 }

@@ -10,6 +10,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import misMazos from './misMazos.js';
 import detalleCarta from './detalleCarta.js'
 import detalleMazo from './detalleMazo.js'
+import addMazo from './addMazo.js'
 
 export default ({ navigation }) => {
 
@@ -28,6 +29,11 @@ export default ({ navigation }) => {
 
                   }}/>
             <StackNavigator.Screen name='Detalle Carta' component={detalleCarta} options={
+                  {
+
+
+                  }}/>
+            <StackNavigator.Screen name='Agregar Mazo' component={addMazo} options={
                   {
 
 

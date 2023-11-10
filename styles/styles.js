@@ -43,7 +43,23 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         marginVertical: 10,
         fontWeight: 'bold'
-    }
+    },
+    circularContainer: {
+        width: 40, // Adjust the width and height as needed for your circular border
+        height: 40,
+        borderRadius: 20, // Set half of the width and height to make it a circle
+        borderWidth: 2, // Border width
+        borderColor: 'black', // Border color
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor:'black',
+        bottom: 30
+      },
+      text: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: 'red', // Text color
+      },
 });
 
 export default styles;

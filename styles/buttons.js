@@ -13,7 +13,7 @@ const buttons = StyleSheet.create({
         borderRadius: 30
     },
     logoutButton: {
-        backgroundColor: 'light-blue',
+        backgroundColor: 'lightblue',
         borderWidth: 1,
         textAlignVertical: 'center',
         borderRadius: 30,

@@ -36,7 +36,7 @@ export default ({ navigation , route}) => {
               containerStyle={{
                 width: 100,
                 marginHorizontal: 10,
-                marginVertical: 50,
+                marginVertical: 0,
                 alignSelf:'center'
               }}
               titleStyle={{ fontWeight: 'bold' }}/>

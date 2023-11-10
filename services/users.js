@@ -6,7 +6,7 @@ const Login = (userLogin, userPassword) => {
     userPassword: userPassword
   };
 
-  return fetch(`${URL}/api/user/login`, {
+  return fetch(`http://172.20.102.248:8080/api/user/login`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json' // Specify the content type as JSON
@@ -30,7 +30,7 @@ const Register = (Login, Password, nickName, email) => {
     email: email
   };
 
-  return fetch(`${URL}/api/user`, {
+  return fetch(`http://172.20.102.248:8080/api/user`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json' // Specify the content type as JSON
@@ -47,7 +47,19 @@ const Register = (Login, Password, nickName, email) => {
     })
 }
 
+const getUser = (id) => {
+  return fetch(`http://172.20.102.248:8080/api/user/${id}`)
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        throw new Error("Error: Not found");
+      }
+    })
+};
+
 export default {
   Login,
-  Register
+  Register,
+  getUser
 };

@@ -39,7 +39,9 @@ export default ({ navigation, route}) => {
 
     
   );
-  
+  const toCartas = () => {
+    navigation.navigate('Buscar carta')
+  }
   useFocusEffect(
     useCallback(() => {
       console.log(route.params.mazoId)
@@ -72,7 +74,8 @@ export default ({ navigation, route}) => {
                 marginLeft:110,
                 alignContent:'center'
               }}
-              titleStyle={{ fontWeight: 'bold' }} />
+              titleStyle={{ fontWeight: 'bold' }}
+              onPress={toCartas} />
       </View>
     <CartaFlatList cartas={mazo} navigation={navigation}/>
     </View>

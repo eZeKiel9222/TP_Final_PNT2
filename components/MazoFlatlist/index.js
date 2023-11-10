@@ -28,12 +28,10 @@ export default ({ mazos, navigation }) => {
   }
 
   return (
-    <View >
-    <FlatList
+      <FlatList
       data={mazos}
       renderItem={renderMazo}
      />
-     </View>  
   )
 
 }

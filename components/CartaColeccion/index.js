@@ -16,7 +16,7 @@ return (
         style={style}
         key={carta.id}/>
         <View style={styles.circularContainer}>
-        <Text style={styles.text}>x{carta.CartasMazo.amount}</Text>
+        <Text style={styles.text}>x{carta.Coleccion.amount}</Text>
         </View>
     </View>
 )

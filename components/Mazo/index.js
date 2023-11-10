@@ -1,5 +1,6 @@
 import { Text, View, ImageBackground, Alert } from 'react-native';
 import { Button } from '@rneui/themed';
+import MazosService from '../../services/mazos'
 
 export default Mazo = ({mazo}) => {
     const handleConfirmacion = () =>{
@@ -14,7 +15,9 @@ export default Mazo = ({mazo}) => {
               {
                 text: 'Aceptar',
                 onPress: () => {
-                  // Lógica a ejecutar si el usuario acepta la acción
+                  MazosService.deleteMazo(mazo.id).then(data => {
+                    console.log(data.message)
+                  })
                   console.log('Acción confirmada');
                 },
               },
