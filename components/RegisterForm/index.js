@@ -3,6 +3,8 @@ import { Text, View, TextInput, ImageBackground } from 'react-native';
 import GlobalContext from '../../services/GlobalContext';
 import UserService from "../../services/users";
 import styles from '../../styles/styles.js'
+import buttons from '../../styles/buttons.js'
+import header from '../../styles/header.js'
 import Header from '../Header/index.js';
 import { Button } from '@rneui/themed';
 
@@ -30,7 +32,7 @@ export default RegisterForm = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header name='Registro Usuario' styleHeader={styles.titleLogin} styleDivider={styles.dividerLogin} />
+      <Header name='Registro Usuario' styleHeader={header.titleLogin} styleDivider={header.dividerLogin} />
 
       <ImageBackground
         source={require('../../images/logo1.png')}
@@ -68,31 +70,13 @@ export default RegisterForm = ({ navigation }) => {
             placeholderTextColor='white'
           />
           <View
-            style={styles.containerbuttons}>
-            <Button title="Register" onPress={handleRegister} buttonStyle={{
-              backgroundColor: 'black',
-              borderWidth: 2,
-              borderColor: 'white',
-              borderRadius: 30,
-            }}
-              containerStyle={{
-                width: 100,
-                marginHorizontal: 30,
-                marginVertical: 10,
-              }}
+            style={buttons.containerbutton}>
+            <Button title="Register" onPress={handleRegister} buttonStyle={buttons.loginRegisterButton}
+              containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
-            <Button title="Return" onPress={changeForm} buttonStyle={{
-              backgroundColor: 'black',
-              borderWidth: 2,
-              borderColor: 'white',
-              borderRadius: 30,
-            }}
-              containerStyle={{
-                width: 100,
-                marginHorizontal: 30,
-                marginVertical: 10,
-              }}
+            <Button title="Return" onPress={changeForm} buttonStyle={buttons.loginRegisterButton}
+              containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
           </View>
         </View>

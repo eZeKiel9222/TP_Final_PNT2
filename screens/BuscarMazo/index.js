@@ -1,13 +1,13 @@
 import Header from '../../components/Header/index.js';
-import { useContext, useState, useCallback } from 'react';
+import { useContext } from 'react';
 import GlobalContext from '../../services/GlobalContext';
-import styles from '../../styles/styles.js'
+import header from '../../styles/header.js'
 
 export default ({ navigation }) => {
 
   const { changeHome } = useContext(GlobalContext)
 
   return (
-    <Header name='Buscar mazo' styleHeader={styles.title} styleDivider={styles.divider}/>
+    <Header name='Buscar mazo' styleHeader={header.title} styleDivider={header.divider} />
   )
 }

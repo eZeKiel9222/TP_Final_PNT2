@@ -15,15 +15,6 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         color: 'white'
     },
-    button: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 12,
-        paddingHorizontal: 32,
-        borderRadius: 4,
-        elevation: 3,
-        backgroundColor: 'black',
-      },
     background: {
         backgroundColor: 'black',
     },
@@ -33,38 +24,15 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         margin: 20
     },
-    containerbuttons: {
-        flexDirection: 'row',
-        alignSelf: 'center',
-        margin: 20
-    },
-    title: {
-        color: 'black',
-        fontWeight: 'bold',
-        fontSize: 20,
-        alignSelf: 'center',
-        margin: 2
-    },
-    titleLogin: {
-        color: 'white',
-        fontWeight: 'bold',
-        fontSize: 20,
-        alignSelf: 'center',
-        margin: 2
-    },
-    divider: {
-        borderBottomColor: 'black', 
-        borderBottomWidth: 1, 
-        marginHorizontal: 20
-      },
-      dividerLogin: {
-        borderBottomColor: 'white', 
-        borderBottomWidth: 1, 
-        marginHorizontal: 20
-      },
-    login:{
+    login: {
         marginTop: 200
-      }
+    },
+    containerStyle: {
+        width: 100,
+        marginHorizontal: 10,
+        marginVertical: 10,
+        fontWeight: 'bold'
+    }
 });
 
 export default styles;

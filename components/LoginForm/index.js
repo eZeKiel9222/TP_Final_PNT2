@@ -3,6 +3,8 @@ import { Text, View, TextInput, ImageBackground } from 'react-native';
 import GlobalContext from '../../services/GlobalContext';
 import FingerprintAuthComponent from '../LoginForm/FingerprintAuthComponent'
 import styles from '../../styles/styles.js'
+import buttons from '../../styles/buttons.js'
+import header from '../../styles/header.js'
 import Header from '../Header/index.js'
 import { Button } from '@rneui/themed';
 import UserService from '../../services/users.js'
@@ -30,7 +32,7 @@ export default LoginForm = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Header name='Login' styleHeader={styles.titleLogin} styleDivider={styles.dividerLogin} />
+      <Header name='Login' styleHeader={header.titleLogin} styleDivider={header.dividerLogin} />
       <ImageBackground
         source={require('../../images/logo2.png')}
         style={{ width: screenWidth, height: screenWidth }}
@@ -50,31 +52,13 @@ export default LoginForm = ({ navigation }) => {
             placeholder="Password"
             placeholderTextColor='white'
           />
-          <View style={styles.containerbuttons}>
-            <Button title="Login" onPress={handleLogin} buttonStyle={{
-              backgroundColor: 'black',
-              borderWidth: 2,
-              borderColor: 'white',
-              borderRadius: 30,
-            }}
-              containerStyle={{
-                width: 100,
-                marginHorizontal: 10,
-                marginVertical: 10,
-              }}
+          <View style={buttons.containerbutton}>
+            <Button title="Login" onPress={handleLogin} buttonStyle={buttons.loginRegisterButton}
+              containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
-            <Button title="Register" onPress={changeForm} buttonStyle={{
-              backgroundColor: 'black',
-              borderWidth: 2,
-              borderColor: 'white',
-              borderRadius: 30,
-            }}
-              containerStyle={{
-                width: 100,
-                marginHorizontal: 10,
-                marginVertical: 10,
-              }}
+            <Button title="Register" onPress={changeForm} buttonStyle={buttons.loginRegisterButton}
+              containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
             <FingerprintAuthComponent />
