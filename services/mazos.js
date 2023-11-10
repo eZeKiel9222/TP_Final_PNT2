@@ -1,7 +1,9 @@
+import { URL } from '@env'
+
 //const BASE_URL = "https://us-central1-api-nt2-ejemplo.cloudfunctions.net/app/api/read"
 
 const getMazos = () => {
-  return fetch(`${process.env.URL}/api/mazo`)
+  return fetch(`${URL}/api/mazo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -12,7 +14,7 @@ const getMazos = () => {
 };
 
 const getMazosByIdUser = (id) => {
-  return fetch(`${process.env.URL}/api/mazo/user/${id}`)
+  return fetch(`${URL}/api/mazo/user/${id}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();

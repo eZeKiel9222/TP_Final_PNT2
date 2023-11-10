@@ -1,10 +1,12 @@
+import { URL } from '@env'
+
 const Login = (userLogin, userPassword) => {
   const requestBody = {
     userLogin: userLogin,
     userPassword: userPassword
   };
 
-  return fetch(`${process.env.URL}/api/user/login`, {
+  return fetch(`${URL}/api/user/login`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json' // Specify the content type as JSON
@@ -28,7 +30,7 @@ const Register = (Login, Password, nickName, email) => {
     email: email
   };
 
-  return fetch(`${process.env.URL}/api/user`, {
+  return fetch(`${URL}/api/user`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json' // Specify the content type as JSON
