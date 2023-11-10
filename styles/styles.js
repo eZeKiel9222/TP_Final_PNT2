@@ -26,6 +26,17 @@ const styles = StyleSheet.create({
     },
     login: {
         marginTop: 200
+      },
+    cartaIcon:{ 
+        width: 180 , 
+        height: 250 , 
+        margin:3
+    },
+    cartaDetalle:{ 
+        width: 400 , 
+        height: 450 , 
+        alignSelf:'center',
+        marginTop:15
     },
     containerStyle: {
         width: 100,

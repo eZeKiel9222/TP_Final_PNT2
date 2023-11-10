@@ -1,8 +1,26 @@
 import Header from '../../components/Header/index.js';
-import header from '../../styles/header.js'
+import styles from '../../styles/styles.js'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import coleccion from './coleccion.js';
+import detalleCarta from './detalleCarta.js';
+
 
 export default ({ navigation }) => {
+  const StackNavigator = createNativeStackNavigator()
   return (
-    <Header name='Mi coleccion' styleHeader={header.title} styleDivider={header.divider} />
-  )
+
+      <StackNavigator.Navigator>
+        <StackNavigator.Screen name='Coleccion' component={coleccion} options={
+                  {
+                    headerBackVisible: false,
+                    headerShown:false
+                  }}/>
+          <StackNavigator.Screen name='Detalle Carta' component={detalleCarta} options={
+                  {
+
+                  }}/>
+      </StackNavigator.Navigator>
+  
+    )
 }
