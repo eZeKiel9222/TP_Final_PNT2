@@ -6,14 +6,14 @@ const header = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 20,
         alignSelf: 'center',
-        margin: 2
+        marginBottom: 5
     },
     titleLogin: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 20,
         alignSelf: 'center',
-        margin: 2
+        padding: 5
     },
     divider: {
         borderBottomColor: 'black',
@@ -27,9 +27,13 @@ const header = StyleSheet.create({
     },
     container: {
         flexDirection: 'row',
-        alignItems: 'center', // Centra verticalmente los elementos
-        justifyContent: 'space-between', // Espacio entre los elementos para alinear a la derecha
-        paddingHorizontal: 20, // Espacio horizontal para evitar que los elementos se peguen a los bordes
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20
+    },
+    login: {
+        justifyContent: 'center',  // Esto centra el contenido en el eje principal (verticalmente)
+        alignItems: 'center',
     }
 })
 

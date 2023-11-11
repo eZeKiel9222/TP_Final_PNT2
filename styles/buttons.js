@@ -6,7 +6,7 @@ const buttons = StyleSheet.create({
         alignSelf: 'center',
         margin: 20
     },
-    loginRegisterButton: {
+    blackButton: {
         backgroundColor: 'black',
         borderWidth: 2,
         borderColor: 'white',
@@ -14,10 +14,10 @@ const buttons = StyleSheet.create({
     },
     logoutButton: {
         backgroundColor: 'lightblue',
-        borderWidth: 1,
-        textAlignVertical: 'center',
-        borderRadius: 30,
+        borderWidth: 0.5,
+        borderRadius: 10,
         color: "black",
+        padding: 3
     }
 })
 

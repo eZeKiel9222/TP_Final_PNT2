@@ -6,12 +6,12 @@ const Login = (userLogin, userPassword) => {
     userPassword: userPassword
   };
 
-  return fetch(`http://172.20.102.248:8080/api/user/login`, {
+  return fetch(`${URL}/api/user/login`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(requestBody) // Convert the object to a JSON string
+    body: JSON.stringify(requestBody)
   })
     .then(res => {
       if (res.status === 200) {
@@ -30,12 +30,12 @@ const Register = (Login, Password, nickName, email) => {
     email: email
   };
 
-  return fetch(`http://172.20.102.248:8080/api/user`, {
+  return fetch(`${URL}/api/user`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(requestBody) // Convert the object to a JSON string
+    body: JSON.stringify(requestBody)
   })
     .then(res => {
       console.log()
@@ -48,7 +48,7 @@ const Register = (Login, Password, nickName, email) => {
 }
 
 const getUser = (id) => {
-  return fetch(`http://172.20.102.248:8080/api/user/${id}`)
+  return fetch(`${URL}/api/user/${id}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();

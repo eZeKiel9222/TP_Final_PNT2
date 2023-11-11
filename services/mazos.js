@@ -3,7 +3,7 @@ import { URL } from '@env'
 //const BASE_URL = "https://us-central1-api-nt2-ejemplo.cloudfunctions.net/app/api/read"
 
 const getMazos = () => {
-  return fetch(`http://172.20.102.248:8080/api/mazo`)
+  return fetch(`${URL}/api/mazo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -12,8 +12,9 @@ const getMazos = () => {
       }
     });
 };
+
 const getModos = () => {
-  return fetch(`http://172.20.102.248:8080/api/modo`)
+  return fetch(`${URL}/api/modo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -22,11 +23,9 @@ const getModos = () => {
       }
     });
 };
-
-
 
 const getMazo = (id) => {
-  return fetch(`http://172.20.102.248:8080/api/mazo/${id}`)
+  return fetch(`${URL}/api/mazo/${id}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -35,8 +34,9 @@ const getMazo = (id) => {
       }
     })
 };
+
 const getMazosByIdUser = (id) => {
-  return fetch(`http://172.20.102.248:8080/api/mazo/user/${id}`)
+  return fetch(`${URL}/api/mazo/user/${id}`)
 
     .then(res => {
       if (res.status === 200) {
@@ -46,52 +46,52 @@ const getMazosByIdUser = (id) => {
       }
     });
 };
-const deleteCartaMazo = (IdCarta , IdMazo) => {
+
+const deleteCartaMazo = (IdCarta, IdMazo) => {
   const requestBody = {
     MazoId: IdMazo,
     CartaId: IdCarta
   };
 
-  return fetch(`http://172.20.102.248:8080/api/cartasmazo`, {
+  return fetch(`${URL}/api/cartasmazo`, {
     method: "DELETE",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(requestBody) // Convert the object to a JSON string
+    body: JSON.stringify(requestBody)
   })
-  .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return res.json();
-    }
-  });
-
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return res.json();
+      }
+    });
 }
+
 const cambiarEstadoMazo = (IdMazo, nuevoEstado) => {
   const requestBody = {
     id: IdMazo,
     privado: nuevoEstado
   };
 
-  return fetch(`http://172.20.102.248:8080/api/mazo/estado/${IdMazo}`, {
+  return fetch(`${URL}/api/mazo/estado/${IdMazo}`, {
     method: "PUT",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(requestBody) // Convert the object to a JSON string
+    body: JSON.stringify(requestBody)
   })
-  .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return res.json();
-    }
-  });
-
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return res.json();
+      }
+    });
 }
 
-const createMazo = (nombreMazo,estado,user,modo) => {
+const createMazo = (nombreMazo, estado, user, modo) => {
   let state = false
   if (estado === "Privado") {
     state = true
@@ -104,49 +104,45 @@ const createMazo = (nombreMazo,estado,user,modo) => {
     UserId: user
   };
 
-  return fetch(`http://172.20.102.248:8080/api/mazo`, {
+  return fetch(`${URL}/api/mazo`, {
     method: "POST",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
-    body: JSON.stringify(requestBody) // Convert the object to a JSON string
+    body: JSON.stringify(requestBody)
   })
-  .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return res.json();
-    }
-  });
-
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return res.json();
+      }
+    });
 }
 
 const deleteMazo = (IdMazo) => {
-
-  return fetch(`http://172.20.102.248:8080/api/mazo/${IdMazo}`, {
+  return fetch(`${URL}/api/mazo/${IdMazo}`, {
     method: "DELETE",
     headers: {
-      'Content-Type': 'application/json' // Specify the content type as JSON
+      'Content-Type': 'application/json'
     },
   })
-  .then(res => {
-    if (res.status === 200) {
-      return res.json();
-    } else {
-      return res.json();
-    }
-  });
-
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return res.json();
+      }
+    });
 }
 
-
 export default {
-    getMazos,
-    getMazosByIdUser,
-    getMazo,
-    deleteCartaMazo,
-    cambiarEstadoMazo,
-    getModos,
-    createMazo,
-    deleteMazo
+  getMazos,
+  getMazosByIdUser,
+  getMazo,
+  deleteCartaMazo,
+  cambiarEstadoMazo,
+  getModos,
+  createMazo,
+  deleteMazo
 };

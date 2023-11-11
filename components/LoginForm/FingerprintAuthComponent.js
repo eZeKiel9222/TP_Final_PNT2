@@ -7,22 +7,31 @@ import styles from '../../styles/styles.js'
 import GlobalContext from '../../services/GlobalContext';
 import * as LocalAuthentication from 'expo-local-authentication';
 
-const FingerprintAuthComponent = () => {
+const FingerprintAuthComponent = ({ navigation }) => {
 
-    const { changeHome } = useContext(GlobalContext)
+    const { users, setUser } = useContext(GlobalContext)
 
     const handleAuthenticate = () => {
         LocalAuthentication.authenticateAsync(LocalAuthentication.AuthenticationType.FINGERPRINT)
             .then(() => {
                 console.log('huella ok');
-                changeHome()
+                //user hardcodeado
+                setUser({
+                    "accessToken": "XXXXXX",
+                    "userInfo": {
+                        "id": 2,
+                        "nickName": "mlarotonda",
+                        "email": "mauri@hotmail.com"
+                    }
+                })
+                navigation.navigate('Mis Mazos')
             })
             .catch((error) => console.log(error));
     };
 
     return (
         <View>
-            <Button title="Huella" onPress={handleAuthenticate} buttonStyle={buttons.loginRegisterButton}
+            <Button title="Huella" onPress={handleAuthenticate} buttonStyle={buttons.blackButton}
                 containerStyle={styles.containerStyle}
                 titleStyle={{ fontWeight: 'bold' }} />
         </View>

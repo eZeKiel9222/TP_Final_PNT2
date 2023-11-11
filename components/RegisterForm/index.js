@@ -31,7 +31,7 @@ export default RegisterForm = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={header.login}>
       <Header name='Registro Usuario' styleHeader={header.titleLogin} styleDivider={header.dividerLogin} />
 
       <ImageBackground
@@ -46,36 +46,36 @@ export default RegisterForm = ({ navigation }) => {
             onChangeText={OnchangeRegisterLogin}
             value={Registerlogin}
             placeholder='Username'
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <TextInput
             style={styles.input}
             onChangeText={OnchangeRegisterPassword}
             value={Registerpassword}
             placeholder="Password"
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <TextInput
             style={styles.input}
             onChangeText={OnchangeRegisterNickname}
             value={RegisterNickname}
             placeholder="Nickname"
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <TextInput
             style={styles.input}
             onChangeText={OnchangeRegisterEmail}
             value={RegisterEmail}
             placeholder="Email"
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <View
             style={buttons.containerbutton}>
-            <Button title="Register" onPress={handleRegister} buttonStyle={buttons.loginRegisterButton}
+            <Button title="Register" onPress={handleRegister} buttonStyle={buttons.blackButton}
               containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
-            <Button title="Return" onPress={changeForm} buttonStyle={buttons.loginRegisterButton}
+            <Button title="Return" onPress={changeForm} buttonStyle={buttons.blackButton}
               containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
           </View>

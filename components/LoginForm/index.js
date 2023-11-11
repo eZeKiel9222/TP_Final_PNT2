@@ -31,7 +31,7 @@ export default LoginForm = ({ navigation }) => {
   }
 
   return (
-    <View style={styles.container}>
+    <View style={header.login}>
       <Header name='Login' styleHeader={header.titleLogin} styleDivider={header.dividerLogin} />
       <ImageBackground
         source={require('../../images/logo2.png')}
@@ -43,21 +43,21 @@ export default LoginForm = ({ navigation }) => {
             onChangeText={OnchangeLogin}
             value={Inputlogin}
             placeholder='Username'
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <TextInput
             style={styles.input}
             onChangeText={OnchangePassword}
             value={Inputpassword}
             placeholder="Password"
-            placeholderTextColor='white'
+            placeholderTextColor='grey'
           />
           <View style={buttons.containerbutton}>
-            <Button title="Login" onPress={handleLogin} buttonStyle={buttons.loginRegisterButton}
+            <Button title="Login" onPress={handleLogin} buttonStyle={buttons.blackButton}
               containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
-            <Button title="Register" onPress={changeForm} buttonStyle={buttons.loginRegisterButton}
+            <Button title="Register" onPress={changeForm} buttonStyle={buttons.blackButton}
               containerStyle={styles.containerStyle}
               titleStyle={{ fontWeight: 'bold' }} />
             <Text>   </Text>
