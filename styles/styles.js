@@ -45,11 +45,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     circularContainer: {
-        width: 40, // Adjust the width and height as needed for your circular border
+        width: 40,
         height: 40,
-        borderRadius: 20, // Set half of the width and height to make it a circle
-        borderWidth: 2, // Border width
-        borderColor: 'black', // Border color
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:'black',
@@ -58,8 +58,18 @@ const styles = StyleSheet.create({
       text: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: 'red', // Text color
+        color: 'red',
       },
+      smallInput: {
+        height: 40,
+        width: '60%',
+        margin: 12,
+        paddingLeft: 10,
+        borderWidth: 2,
+        borderColor: 'silver',
+        color: 'black',
+        backgroundColor: 'white'
+      }
 });
 
 export default styles;

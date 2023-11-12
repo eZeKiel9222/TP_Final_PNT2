@@ -7,6 +7,7 @@ export default ({ cartas, navigation }) => {
 
   const renderCarta = (param) => {
     const { item } = param
+    
     return (
       <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity
