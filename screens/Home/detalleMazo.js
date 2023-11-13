@@ -62,7 +62,7 @@ export default ({ navigation, route }) => {
           }}
           onPress={toCartas} />
       </View>
-      <CartaFlatList cartas={mazo} navigation={navigation} />
+      <CartaFlatList cartas={mazo} navigation={navigation} ruta={'Detalle Carta'} />
     </View>
 
   )

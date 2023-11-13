@@ -1,7 +1,7 @@
 import { FlatList, TouchableOpacity, View } from "react-native"
 import Mazo from "../Mazo"
 
-export default ({ mazos, navigation }) => {
+export default ({ mazos, navigation , ruta }) => {
   const renderMazo = (param) => {
 
     console.log(param)
@@ -10,11 +10,11 @@ export default ({ mazos, navigation }) => {
     return (
       <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity
-          onPress={() => { navigation.navigate('Detalle Mazo', { mazoId: item[0].id, estado: item[0].privado }) }} >
+          onPress={() => { navigation.navigate(ruta, { mazoId: item[0].id, estado: item[0].privado }) }} >
           <Mazo mazo={item[0]} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => { navigation.navigate('Detalle Mazo', { mazoId: item[1].id, estado: item[1].privado }) }} >
+          onPress={() => { navigation.navigate(ruta, { mazoId: item[1].id, estado: item[1].privado }) }} >
           <Mazo mazo={item[1]} />
         </TouchableOpacity>
       </View>

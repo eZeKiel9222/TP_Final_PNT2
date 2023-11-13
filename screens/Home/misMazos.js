@@ -58,7 +58,7 @@ export default ({ navigation }) => {
           onPress={createMazo} />
       </View>
       <Text></Text>
-      <MazoFlatlist mazos={mazos} navigation={navigation} />
+      <MazoFlatlist mazos={mazos} navigation={navigation} ruta={'Detalle Mazo'} />
     </View>
   )
 }
