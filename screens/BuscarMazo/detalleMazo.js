@@ -1,10 +1,8 @@
 import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { View, Text, Switch } from 'react-native';
+import { View } from 'react-native';
 import MazosService from '../../services/mazos.js'
 import CartaFlatList from '../../components/CartaFlatList/index.js';
-import { Button } from '@rneui/themed';
-import buttonStyle from '../../styles/buttons.js';
 
 export default ({ navigation, route }) => {
     const [mazo, setMazo] = useState()
@@ -33,10 +31,11 @@ export default ({ navigation, route }) => {
   
     );
 
-    return (
-      <View >        
-        <CartaFlatList cartas={mazo} navigation={navigation} ruta={'Detalle Carta Buscado'} />
-      </View>
   
-    )
+  return (
+    <View >
+      <CartaFlatList cartas={mazo} navigation={navigation} ruta={'Detalle Carta Buscado'} />
+    </View>
+
+  )
 }
