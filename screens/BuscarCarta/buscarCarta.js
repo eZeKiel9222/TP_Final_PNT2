@@ -38,7 +38,7 @@ export default ({ navigation }) => {
       <SearchBarWithFilters updateSearch={updateSearch} search={search} clearSearch={clearSearch} setFilter={setFilter} SearchData={SearchData} handleBusqueda={searchCard} />
       {
         data ?
-          <CartaFlatListBusqueda cartas={data} navigation={navigation} ruta={'Detalle Carta Buscado'} />
+          <CartaFlatListBusqueda cartas={data} navigation={navigation} ruta={'Detalle Carta Buscada'} />
           : null
       }
 

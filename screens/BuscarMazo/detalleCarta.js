@@ -7,16 +7,53 @@ import buttonStyle from '../../styles/buttons.js';
 import { useContext, useState, useCallback } from 'react';
 import GlobalContext from '../../services/GlobalContext';
 import { SelectList } from 'react-native-dropdown-select-list'
+import CartaService from '../../services/carta.js'
+import { useFocusEffect } from '@react-navigation/native';
+
 
 export default ({ navigation, route }) => {
   const carta = route.params.carta
   const { MazoId, CartaId } = route.params.carta.CartasMazo
   const { user , mazoss } = useContext(GlobalContext)
   const [mazoAgregar,setMazoAgregar] = useState()
+  const [MazoData,setMazoData] = useState()
 
-const MazoData = mazoss.map(item => ({ key: item.id, value: item.nombreMazo }));
-MazoData.push({key:user.userInfo.id , value:'Mi Coleccion'})
-console.log(MazoData)
+useFocusEffect(
+  useCallback(() => {
+    if(user){
+      const data = mazoss.map(item => ({ key: item.id, value: item.nombreMazo }));
+      data.push({key:'Coleccion' , value:'Mi Coleccion'})
+      setMazoData(data)
+      console.log(MazoData)
+      }
+  }, [])
+);
+
+const Agregar = () => {
+  if(mazoAgregar === 'Coleccion'){
+        CartaService.addCartaColeccion(user.userInfo.id,CartaId).then(data => {
+          console.log(data)
+          if (data.sucess) {
+            alert('Carta Agregada a Coleccion')
+          } else {
+            alert(data.message)
+          }
+        }).catch(error => {
+          console.error('Error fetching user:', error);
+        });
+  } else {
+    CartaService.addCartaMazo(mazoAgregar,CartaId).then(data => {
+      console.log(data)
+      if (data.sucess) {
+        alert('Carta Agregada a Mazo')
+      } else {
+        alert(data.message)
+      }
+    }).catch(error => {
+      console.error('Error fetching user:', error);
+    });
+  }
+}
 
   return (
     <View>
@@ -30,7 +67,7 @@ console.log(MazoData)
         save="key"
       />
       <Button title='Agregar Carta'
-        onPress={{}}
+        onPress={{Agregar}}
         buttonStyle={buttonStyle.blackButton}
         containerStyle={{
           width: 100,

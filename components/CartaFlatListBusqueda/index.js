@@ -5,9 +5,9 @@ import styles from "../../styles/styles"
 export default ({ cartas, navigation, ruta }) => {
   const renderCarta = (param) => {
     const { item } = param;
-    const cardItem = item.image_uris && item.image_uris.small ?
-      { cardName: item.name, image: item.image_uris.small, cardUrl: item.uri } : { cardName: item.name, image: null, cardUrl: null }
-
+    const cardItem = item.image_uris && item.image_uris.normal ?
+      { cardName: item.name, image: item.image_uris.normal, cardUrl: item.uri } : { cardName: item.name, image: null, cardUrl: null }
+    console.log(cardItem)
     return (
       <View style={{ flexDirection: 'row', marginLeft: 5 }}>
         <TouchableOpacity
