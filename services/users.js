@@ -5,8 +5,8 @@ const Login = (userLogin, userPassword) => {
     userLogin: userLogin,
     userPassword: userPassword
   };
-
-  return fetch(`http://172.20.114.124:8080/api/user/login`, {
+  console.log(URL)
+  return fetch(`${URL}/api/user/login`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ const Register = (Login, Password, nickName, email) => {
     email: email
   };
 
-  return fetch(`http://172.20.114.124:8080/api/user`, {
+  return fetch(`${URL}/api/user`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -48,7 +48,7 @@ const Register = (Login, Password, nickName, email) => {
 }
 
 const getUser = (id) => {
-  return fetch(`http://172.20.114.124:8080/api/user/${id}`)
+  return fetch(`${URL}/api/user/${id}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
