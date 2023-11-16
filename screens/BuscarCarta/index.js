@@ -1,20 +1,17 @@
-import Header from '../../components/Header/index.js';
-import { Button } from '@rneui/themed';
-import header from '../../styles/header.js';
-import buttonStyle from '../../styles/buttons.js';
-import styles from '../../styles/styles.js';
-import { View, Text, TextInput, FlatList, Image } from 'react-native';
-import { useState } from 'react';
-import ScryfallService from '../../services/scryfall.js'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import buscarCarta from './buscarCarta.js';
 
 export default ({ navigation }) => {
-
+  const StackNavigator = createNativeStackNavigator()
 
   return (
-    <View>
-      
+    <StackNavigator.Navigator>
+      <StackNavigator.Screen name='Buscar Carta' component={buscarCarta} options={
+        {
+          headerBackVisible: false,
+          headerShown: false
+        }} />
 
-    </View>
-
+    </StackNavigator.Navigator>
   )
 }
