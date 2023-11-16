@@ -26,7 +26,6 @@ export default ({ navigation }) => {
 
   const searchCard = () => {
     ScryfallService.searchCard(search).then(data => {
-      console.log(data)
       setData(data.data)
     }).catch(error => {
       alert(error.message)
