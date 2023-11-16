@@ -1,5 +1,6 @@
-const search = (filter, search) => {
+import { URL } from '@env'
 
+const search = (filter, search) => {
 
   return fetch(`${URL}/api/search/${filter}/${search}`, {
     method: "GET",
