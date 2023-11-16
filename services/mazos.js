@@ -53,7 +53,28 @@ const deleteCartaMazo = (IdCarta, IdMazo) => {
     CartaId: IdCarta
   };
 
-  return fetch(`${URL}/api/cartasmazo`, {
+  return fetch(`http://172.20.114.124:8080/api/cartasmazo`, {
+    method: "DELETE",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  })
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return res.json();
+      }
+    });
+}
+const deleteCartaColeccion = (IdCarta, IdUser) => {
+  const requestBody = {
+    UserId: IdUser,
+    CartaId: IdCarta
+  };
+
+  return fetch(`http://172.20.114.124:8080/api/coleccion`, {
     method: "DELETE",
     headers: {
       'Content-Type': 'application/json'
@@ -144,5 +165,6 @@ export default {
   cambiarEstadoMazo,
   getModos,
   createMazo,
-  deleteMazo
+  deleteMazo,
+  deleteCartaColeccion
 };
