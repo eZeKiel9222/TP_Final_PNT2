@@ -3,7 +3,7 @@ import { URL } from '@env'
 //const BASE_URL = "https://us-central1-api-nt2-ejemplo.cloudfunctions.net/app/api/read"
 
 const getMazos = () => {
-  return fetch(`${URL}/api/mazo`)
+  return fetch(`http://172.20.114.124:8080/api/mazo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -14,7 +14,7 @@ const getMazos = () => {
 };
 
 const getModos = () => {
-  return fetch(`${URL}/api/modo`)
+  return fetch(`http://172.20.114.124:8080/api/modo`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -25,7 +25,7 @@ const getModos = () => {
 };
 
 const getMazo = (id) => {
-  return fetch(`${URL}/api/mazo/${id}`)
+  return fetch(`http://172.20.114.124:8080/api/mazo/${id}`)
     .then(res => {
       if (res.status === 200) {
         return res.json();
@@ -36,7 +36,7 @@ const getMazo = (id) => {
 };
 
 const getMazosByIdUser = (id) => {
-  return fetch(`${URL}/api/mazo/user/${id}`)
+  return fetch(`http://172.20.114.124:8080/api/mazo/user/${id}`)
 
     .then(res => {
       if (res.status === 200) {
@@ -96,7 +96,7 @@ const cambiarEstadoMazo = (IdMazo, nuevoEstado) => {
     privado: nuevoEstado
   };
 
-  return fetch(`${URL}/api/mazo/estado/${IdMazo}`, {
+  return fetch(`http://172.20.114.124:8080/api/mazo/estado/${IdMazo}`, {
     method: "PUT",
     headers: {
       'Content-Type': 'application/json'
@@ -125,7 +125,7 @@ const createMazo = (nombreMazo, estado, user, modo) => {
     UserId: user
   };
 
-  return fetch(`${URL}/api/mazo`, {
+  return fetch(`http://172.20.114.124:8080/api/mazo`, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'
@@ -142,7 +142,7 @@ const createMazo = (nombreMazo, estado, user, modo) => {
 }
 
 const deleteMazo = (IdMazo) => {
-  return fetch(`${URL}/api/mazo/${IdMazo}`, {
+  return fetch(`http://172.20.114.124:8080/api/mazo/${IdMazo}`, {
     method: "DELETE",
     headers: {
       'Content-Type': 'application/json'
