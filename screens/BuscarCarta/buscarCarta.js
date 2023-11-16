@@ -1,19 +1,31 @@
 import Header from '../../components/Header/index.js';
-import { Button } from '@rneui/themed';
 import header from '../../styles/header.js';
-import buttonStyle from '../../styles/buttons.js';
-import styles from '../../styles/styles.js';
-import { View, Text, TextInput, FlatList, Image } from 'react-native';
+import { View } from 'react-native';
 import { useState } from 'react';
 import ScryfallService from '../../services/scryfall.js'
+import SearchBarWithFilters from '../../components/SearchBarWithFilters/index.js';
+import CartaFlatListBusqueda from '../../components/CartaFlatListBusqueda/index.js';
 
 export default ({ navigation }) => {
 
-  const [nombreCarta, OnchangeNombreCarta] = useState()
   const [data, setData] = useState()
+  const [filter, setFilter] = useState()
+  const [search, setSearch] = useState()
+  const [searched, setSearched] = useState(null)
+
+  const SearchData = [{ key: 'name', value: 'Nombre' }]
+
+  const updateSearch = (search) => {
+    setSearch(search);
+  };
+
+  const clearSearch = () => {
+    setData(null)
+    setSearched(null)
+  }
 
   const searchCard = () => {
-    ScryfallService.searchCard(nombreCarta).then(data => {
+    ScryfallService.searchCard(search).then(data => {
       console.log(data)
       setData(data.data)
     }).catch(error => {
@@ -21,39 +33,13 @@ export default ({ navigation }) => {
     });
   }
 
-  const renderItem = ({ item }) => (
-    <View style={{ margin: 10 }}>
-      <Text>{item.name}</Text>
-      {item.image_uris && item.image_uris.small ? (
-        <Image source={{ uri: item.image_uris.small }} style={{ width: 100, height: 100 }} />
-      ) : (
-        <Text>No hay imagen disponible</Text>
-      )}
-
-    </View>
-  );
-
   return (
     <View>
       <Header name='Buscar carta' styleHeader={header.title} styleDivider={header.divider} />
-      <View style={{ backgroundColor: 'gainsboro', flexDirection: 'row', alignItems: 'center' }}>
-        <TextInput
-          style={styles.smallInput}
-          onChangeText={OnchangeNombreCarta}
-          value={nombreCarta}
-          placeholder='Nombre carta'
-          placeholderTextColor='grey'
-        />
-        <Button title='Buscar carta' buttonStyle={buttonStyle.blackButton}
-          onPress={searchCard} />
-      </View>
-      <Text></Text>
+      <SearchBarWithFilters updateSearch={updateSearch} search={search} clearSearch={clearSearch} setFilter={setFilter} SearchData={SearchData} handleBusqueda={searchCard} />
       {
         data ?
-          <FlatList
-            data={data}
-            renderItem={renderItem}
-          />
+          <CartaFlatListBusqueda cartas={data} navigation={navigation} ruta={'Detalle Carta Buscado'} />
           : null
       }
 

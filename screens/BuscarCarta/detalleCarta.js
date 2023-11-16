@@ -1,13 +1,12 @@
-import Header from '../../components/Header/index.js';
-import { useContext } from 'react';
-import GlobalContext from '../../services/GlobalContext';
-import header from '../../styles/header.js'
+import CartaWithoutAmount from '../../components/CartaWithoutAmount/index.js';
+import styles from '../../styles/styles.js'
+import { View } from 'react-native';
 
-export default ({ navigation }) => {
-
-  const { changeHome } = useContext(GlobalContext)
+export default ({ navigation, carta }) => {
 
   return (
-    <Header name='Buscar mazo' styleHeader={header.title} styleDivider={header.divider} />
+    <View>
+      <CartaWithoutAmount carta={carta} style={styles.cartaDetalle} />
+    </View>
   )
 }
