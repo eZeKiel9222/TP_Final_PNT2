@@ -1,3 +1,5 @@
+import { URL } from '@env'
+
 const saveCarta = (cardName, image, cardUrl) => {
     const requestBody = {
       cardName: cardName,

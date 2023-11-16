@@ -33,7 +33,7 @@ const Agregar = () => {
   if(mazoAgregar === 'Coleccion'){
         CartaService.addCartaColeccion(user.userInfo.id,CartaId).then(data => {
           console.log(data)
-          if (data.sucess) {
+          if (data.success) {
             alert('Carta Agregada a Coleccion')
           } else {
             alert(data.message)
@@ -44,7 +44,7 @@ const Agregar = () => {
   } else {
     CartaService.addCartaMazo(mazoAgregar,CartaId).then(data => {
       console.log(data)
-      if (data.sucess) {
+      if (data.success) {
         alert('Carta Agregada a Mazo')
       } else {
         alert(data.message)
@@ -67,7 +67,7 @@ const Agregar = () => {
         save="key"
       />
       <Button title='Agregar Carta'
-        onPress={{Agregar}}
+        onPress={Agregar}
         buttonStyle={buttonStyle.blackButton}
         containerStyle={{
           width: 100,

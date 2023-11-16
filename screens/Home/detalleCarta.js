@@ -12,7 +12,7 @@ export default ({ navigation, route }) => {
   const QuitarCarta = () => {
     MazoService.deleteCartaMazo(CartaId, MazoId).then(data => {
       console.log(data)
-      if (data.sucess) {
+      if (data.success) {
         navigation.navigate('Detalle Mazo')
         alert('Carta Borrada')
       } else {
