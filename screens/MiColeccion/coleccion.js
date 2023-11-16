@@ -17,15 +17,15 @@ export default ({ navigation }) => {
     useCallback(() => {
       UserService.getUser(userInfo.id)
         .then(data => {
-          console.log(data.message)
-          const midpoint = Math.ceil(data.message.Carta.length / 2);
+          
+          const midpoint = Math.floor(data.message.Carta.length / 2);
           const firstHalf = data.message.Carta.slice(0, midpoint);
-          const secondHalf = data.message.Carta.slice(-midpoint);
-          const pairedMazos = Array.from({ length: Math.min(firstHalf.length, secondHalf.length) }, (_, index) => [
+          const secondHalf = data.message.Carta.slice(midpoint);
+          
+          const pairedMazos = Array.from({ length: Math.max(firstHalf.length, secondHalf.length) }, (_, index) => [
             firstHalf[index],
             secondHalf[index]
           ]);
-
           console.log(pairedMazos)
           setCartas(pairedMazos);
         })

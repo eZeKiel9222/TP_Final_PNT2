@@ -11,7 +11,6 @@ import buttonStyle from '../../styles/buttons.js'
 import searchService from '../../services/search.js'
 import MazoFlatlist from '../../components/MazoFlatlist/index.js';
 
-
 export default ({ navigation }) => {
 
   const [filter,setFilter] = useState()
@@ -29,14 +28,12 @@ export default ({ navigation }) => {
 
   const handleBusqueda = () => {
         searchService.search(filter,search).then(data => {
-            console.log(data.message)
-            const midpoint = Math.ceil(data.message.length / 2);
-          console.log(midpoint)
+
+          const midpoint = Math.floor(data.message.length / 2);
           const firstHalf = data.message.slice(0, midpoint);
-          console.log(firstHalf)
-          const secondHalf = data.message.slice(-midpoint);
-          console.log(secondHalf)
-          const pairedMazos = Array.from({ length: Math.min(firstHalf.length, secondHalf.length) }, (_, index) => [
+          const secondHalf = data.message.slice(midpoint);
+          
+          const pairedMazos = Array.from({ length: Math.max(firstHalf.length, secondHalf.length) }, (_, index) => [
             firstHalf[index],
             secondHalf[index]
           ]);
@@ -79,7 +76,7 @@ export default ({ navigation }) => {
     {data ? 
     <MazoFlatlist mazos={data} navigation={navigation} ruta={'Detalle Mazo Buscado'}/>
         :
-        <View></View>
+        <Text>No Se encontro Informacion</Text>
     }
 
     </View>
