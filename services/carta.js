@@ -4,8 +4,8 @@ const saveCarta = (cardName, image, cardUrl) => {
       image: image,
       cardUrl:cardUrl
     };
-  
-    return fetch(`http://172.20.114.124:8080/api/carta/`, {
+
+    return fetch(`${URL}/api/carta/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const saveCarta = (cardName, image, cardUrl) => {
         CartaId: CartaId
     };
   
-    return fetch(`http://172.20.114.124:8080/api/cartasmazo/`, {
+    return fetch(`${URL}/api/cartasmazo/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
@@ -49,7 +49,7 @@ const saveCarta = (cardName, image, cardUrl) => {
         CartaId: CartaId
     };
   
-    return fetch(`http://172.20.114.124:8080/api/coleccion/`, {
+    return fetch(`${URL}/api/coleccion/`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

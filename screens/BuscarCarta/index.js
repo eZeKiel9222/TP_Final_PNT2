@@ -14,8 +14,8 @@ export default ({ navigation }) => {
         }} />
              <StackNavigator.Screen name='Detalle Carta Buscada' component={detalleCarta} options={
         {
-          headerBackVisible: false,
-          headerShown: false
+  
+          
         }} />
 
     </StackNavigator.Navigator>
