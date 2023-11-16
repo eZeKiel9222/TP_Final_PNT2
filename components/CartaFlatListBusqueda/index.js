@@ -6,7 +6,8 @@ export default ({ cartas, navigation, ruta }) => {
   const renderCarta = (param) => {
     const { item } = param;
     const cardItem = item.image_uris && item.image_uris.normal ?
-      { cardName: item.name, image: item.image_uris.normal, cardUrl: item.uri } : { cardName: item.name, image: null, cardUrl: null }
+      { cardName: item.name, image: item.image_uris.normal, cardUrl: item.uri } 
+      : { cardName: item.name, image: item.card_faces[0].image_uris.normal, cardUrl: item.uri }
     console.log(cardItem)
     return (
       <View style={{ flexDirection: 'row', marginLeft: 5 }}>
