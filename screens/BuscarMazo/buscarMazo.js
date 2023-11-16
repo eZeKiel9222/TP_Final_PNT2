@@ -6,7 +6,6 @@ import searchService from '../../services/search.js'
 import MazoFlatlist from '../../components/MazoFlatlist/index.js';
 import SearchBarWithFilters from '../../components/SearchBarWithFilters/index.js';
 
-
 export default ({ navigation }) => {
 
   const [filter, setFilter] = useState()
@@ -28,7 +27,6 @@ export default ({ navigation }) => {
   const handleBusqueda = () => {
 
     searchService.search(filter, search).then(data => {
-      console.log(data.message)
       if (data.message.length === 0) {
         setData(null)
       } else {
@@ -41,7 +39,6 @@ export default ({ navigation }) => {
           secondHalf[index]
         ]);
 
-        console.log(pairedMazos)
         setData(pairedMazos);
       }
       setSearched(true)
@@ -62,7 +59,6 @@ export default ({ navigation }) => {
         searched ?
           <Text style={{ marginTop: 20, marginLeft: 20 }}>No se encontraron mazos con ese filtro</Text> : ""
       }
-
 
     </View>
 

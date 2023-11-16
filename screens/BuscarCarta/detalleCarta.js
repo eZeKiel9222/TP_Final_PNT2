@@ -1,7 +1,7 @@
 import { useCallback, useContext, useState } from 'react';
 import CartaWithoutAmount from '../../components/CartaWithoutAmount/index.js';
 import styles from '../../styles/styles.js'
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import GlobalContext from '../../services/GlobalContext/index.js';
 import { useFocusEffect } from '@react-navigation/native';
 import { SelectList } from 'react-native-dropdown-select-list'
@@ -62,9 +62,10 @@ export default ({ navigation, route }) => {
     <View>
       <ScrollView>
       <CartaWithoutAmount carta={carta} style={styles.cartaDetalle} />
+      <Text></Text>
       {
         user?
-        <View>
+        <View style={{flexDirection:'row', alignSelf:'center'}}>
       <SelectList
         setSelected={(val) => setMazoAgregar(val)}
         data={MazoData}
@@ -74,10 +75,7 @@ export default ({ navigation, route }) => {
         onPress={Agregar}
         buttonStyle={buttonStyle.blackButton}
         containerStyle={{
-          width: 100,
-          marginHorizontal: 10,
-          marginVertical: 0,
-          alignSelf: 'center'
+          marginLeft: 10
         }}
         titleStyle={{ fontWeight: 'bold' }} />
         </View>

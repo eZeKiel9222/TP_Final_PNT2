@@ -1,7 +1,7 @@
 import Carta from '../../components/Carta/index.js';
 import styles from '../../styles/styles.js'
 import { Button } from '@rneui/themed';
-import { ScrollView, View } from 'react-native';
+import { ScrollView, View, Text } from 'react-native';
 import MazoService from '../../services/mazos.js'
 import buttonStyle from '../../styles/buttons.js';
 import { useContext, useState, useCallback } from 'react';
@@ -70,10 +70,7 @@ const Agregar = () => {
         onPress={Agregar}
         buttonStyle={buttonStyle.blackButton}
         containerStyle={{
-          width: 100,
-          marginHorizontal: 10,
-          marginVertical: 0,
-          alignSelf: 'center'
+          marginLeft: 10
         }}
         titleStyle={{ fontWeight: 'bold' }} />
         </View>
