@@ -23,6 +23,7 @@ const Header = ({ name, styleHeader, styleDivider }) => {
                 }
             </View>
             <View style={styleDivider} />
+            <Text style={{ height: 10 }}></Text>
         </View>
     );
 };
