@@ -5,6 +5,7 @@ import MazosService from '../../services/mazos.js'
 import CartaFlatList from '../../components/CartaFlatList/index.js';
 import { Button } from '@rneui/themed';
 import buttonStyle from '../../styles/buttons.js';
+import Carta from '../../services/carta.js';
 
 export default ({ navigation, route }) => {
   const [mazo, setMazo] = useState()
@@ -16,16 +17,16 @@ export default ({ navigation, route }) => {
       setIsEnabled(route.params.estado)
       MazosService.getMazo(route.params.mazoId)
         .then(data => {
-          console.log(data.message)
-          const midpoint = Math.ceil(data.message[0].Carta.length / 2);
+          
+          const midpoint = Math.floor(data.message[0].Carta.length / 2);
           const firstHalf = data.message[0].Carta.slice(0, midpoint);
-          const secondHalf = data.message[0].Carta.slice(-midpoint);
-
-          const pairedCartas = Array.from({ length: Math.min(firstHalf.length, secondHalf.length) }, (_, index) => [
+          const secondHalf = data.message[0].Carta.slice(midpoint);
+          
+          const pairedCartas = Array.from({ length: Math.max(firstHalf.length, secondHalf.length) }, (_, index) => [
             firstHalf[index],
             secondHalf[index]
           ]);
-
+          console.log(pairedCartas)
           setMazo(pairedCartas);
         })
         .catch(error => {

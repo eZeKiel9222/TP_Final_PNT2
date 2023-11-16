@@ -13,7 +13,7 @@ export default ({ navigation, route }) => {
     MazoService.deleteCartaColeccion(CartaId, UserId).then(data => {
       console.log(data)
       if (data.sucess) {
-        navigation.navigate('Detalle Mazo')
+        navigation.navigate('Coleccion')
         alert('Carta Borrada')
       } else {
         alert(data.message)

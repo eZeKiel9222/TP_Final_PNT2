@@ -13,6 +13,8 @@ export default function App() {
 
   const [users, setUsers] = useState([])
   const [user, setUser] = useState()
+  const [mazos, setMazos] = useState(null)
+  const [mazoss, setMazoss] = useState(null)
   const [showForm, SetShowForm] = useState(defaultShowForm);
   const screenWidth = Dimensions.get('window').width;
 
@@ -31,7 +33,7 @@ export default function App() {
   }, [])
 
   return (
-    <GlobalContext.Provider value={{ SetShowForm, changeForm, changeHome, screenWidth, users, user, setUser, showForm }}>
+    <GlobalContext.Provider value={{ SetShowForm, changeForm, changeHome, screenWidth, users, user, setUser, showForm , mazos,setMazos, mazoss,setMazoss }}>
       <NavigationContainer>
         {
           user ?

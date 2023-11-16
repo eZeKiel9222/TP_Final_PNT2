@@ -11,10 +11,9 @@ import buttonStyle from '../../styles/buttons.js';
 
 export default ({ navigation }) => {
 
-  const { changeHome, user } = useContext(GlobalContext)
-  const [mazos, setMazos] = useState(null)
+  const { changeHome, user ,mazos , setMazos , setMazoss , mazoss} = useContext(GlobalContext)
   const { userInfo } = user
-  console.log(userInfo)
+
 
   const createMazo = () => {
 
@@ -24,20 +23,16 @@ export default ({ navigation }) => {
     useCallback(() => {
       MazosService.getMazosByIdUser(userInfo.id)
         .then(data => {
-          console.log(data.message)
-          const midpoint = Math.ceil(data.message.length / 2);
-          console.log(midpoint)
+          const midpoint = Math.floor(data.message.length / 2);
           const firstHalf = data.message.slice(0, midpoint);
-          console.log(firstHalf)
-          const secondHalf = data.message.slice(-midpoint);
-          console.log(secondHalf)
-          const pairedMazos = Array.from({ length: Math.min(firstHalf.length, secondHalf.length) }, (_, index) => [
+          const secondHalf = data.message.slice(midpoint);
+          
+          const pairedMazos = Array.from({ length: Math.max(firstHalf.length, secondHalf.length) }, (_, index) => [
             firstHalf[index],
             secondHalf[index]
           ]);
-
-          console.log(pairedMazos)
           setMazos(pairedMazos);
+          setMazoss(data.message)
         })
         .catch(error => {
           console.error('Error fetching mazos:', error);

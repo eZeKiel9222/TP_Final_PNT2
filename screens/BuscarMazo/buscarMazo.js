@@ -6,6 +6,7 @@ import searchService from '../../services/search.js'
 import MazoFlatlist from '../../components/MazoFlatlist/index.js';
 import SearchBarWithFilters from '../../components/SearchBarWithFilters/index.js';
 
+
 export default ({ navigation }) => {
 
   const [filter, setFilter] = useState()
@@ -18,25 +19,24 @@ export default ({ navigation }) => {
   const updateSearch = (search) => {
     setSearch(search);
   };
-  
+
   const clearSearch = () => {
     setData(null)
     setSearched(null)
   }
 
   const handleBusqueda = () => {
+
     searchService.search(filter, search).then(data => {
       console.log(data.message)
       if (data.message.length === 0) {
         setData(null)
       } else {
-        const midpoint = Math.ceil(data.message.length / 2);
-        console.log(midpoint)
+        const midpoint = Math.floor(data.message.length / 2);
         const firstHalf = data.message.slice(0, midpoint);
-        console.log(firstHalf)
-        const secondHalf = data.message.slice(-midpoint);
-        console.log(secondHalf)
-        const pairedMazos = Array.from({ length: Math.min(firstHalf.length, secondHalf.length) }, (_, index) => [
+        const secondHalf = data.message.slice(midpoint);
+
+        const pairedMazos = Array.from({ length: Math.max(firstHalf.length, secondHalf.length) }, (_, index) => [
           firstHalf[index],
           secondHalf[index]
         ]);
@@ -54,14 +54,15 @@ export default ({ navigation }) => {
     <View>
       <Header name='Buscar mazo' styleHeader={header.title} styleDivider={header.divider} />
       <View>
-        <SearchBarWithFilters updateSearch={updateSearch} search={search} clearSearch={clearSearch} setFilter={setFilter} SearchData={SearchData} handleBusqueda={handleBusqueda}/>
+        <SearchBarWithFilters updateSearch={updateSearch} search={search} clearSearch={clearSearch} setFilter={setFilter} SearchData={SearchData} handleBusqueda={handleBusqueda} />
       </View>
       {data ?
         <MazoFlatlist mazos={data} navigation={navigation} ruta={'Detalle Mazo Buscado'} />
         :
         searched ?
-          <Text style={{marginTop: 20, marginLeft: 20}}>No se encontraron mazos con ese filtro</Text> : ""
+          <Text style={{ marginTop: 20, marginLeft: 20 }}>No se encontraron mazos con ese filtro</Text> : ""
       }
+
 
     </View>
 

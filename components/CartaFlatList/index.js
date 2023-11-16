@@ -9,14 +9,22 @@ export default ({ cartas, navigation, ruta }) => {
 
     return (
       <View style={{ flexDirection: 'row' }}>
+        {item[0]?
         <TouchableOpacity
           onPress={() => { navigation.navigate(ruta, { carta: item[0] }) }} >
           <Carta carta={item[0]} style={styles.cartaIcon} />
         </TouchableOpacity>
+        :
+        <View></View>
+  }
+  { item[1]?
         <TouchableOpacity
           onPress={() => { navigation.navigate(ruta, { carta: item[1] }) }} >
           <Carta carta={item[1]} style={styles.cartaIcon} />
         </TouchableOpacity>
+        :
+        <View></View>
+  }
       </View>
     )
   }
