@@ -6,6 +6,11 @@ const homeStyles = StyleSheet.create({
         fontWeight: 'bold',
         margin: 20
     },
+    secondTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        margin: 20
+    },
     textInput: {
         height: 45,
         margin: 12,
