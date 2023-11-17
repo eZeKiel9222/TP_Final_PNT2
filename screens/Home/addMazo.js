@@ -34,7 +34,6 @@ export default ({ navigation, route }) => {
     useCallback(() => {
       MazosService.getModos()
         .then(data => {
-          console.log(data.message)
           setModos(data.message)
           const transformedArray = data.message.map(item => ({ key: item.id, value: item.nombreModo }));
           setData(transformedArray)

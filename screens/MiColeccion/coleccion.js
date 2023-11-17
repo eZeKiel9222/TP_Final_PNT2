@@ -26,7 +26,6 @@ export default ({ navigation }) => {
             firstHalf[index],
             secondHalf[index]
           ]);
-          console.log(pairedMazos)
           setCartas(pairedMazos);
         })
         .catch(error => {

@@ -25,7 +25,6 @@ export default ({ navigation }) => {
   }
 
   const handleBusqueda = () => {
-
     searchService.search(filter, search).then(data => {
       if (data.message.length === 0) {
         setData(null)

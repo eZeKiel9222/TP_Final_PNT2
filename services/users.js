@@ -5,7 +5,6 @@ const Login = (userLogin, userPassword) => {
     userLogin: userLogin,
     userPassword: userPassword
   };
-  console.log(URL)
   return fetch(`${URL}/api/user/login`, {
     method: "POST",
     headers: {
