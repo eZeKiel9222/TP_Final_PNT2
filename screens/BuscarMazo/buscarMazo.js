@@ -26,7 +26,7 @@ export default ({ navigation }) => {
 
   const handleBusqueda = () => {
     searchService.search(filter, search).then(data => {
-      if (data.message.length === 0) {
+      if (data.success === false ) {
         setData(null)
       } else {
         const midpoint = Math.floor(data.message.length / 2);
@@ -37,7 +37,6 @@ export default ({ navigation }) => {
           firstHalf[index],
           secondHalf[index]
         ]);
-
         setData(pairedMazos);
       }
       setSearched(true)

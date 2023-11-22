@@ -20,7 +20,7 @@ export default RegisterForm = ({ navigation }) => {
 
     UserService.Register(Registerlogin, Registerpassword, RegisterNickname, RegisterEmail).then(data => {
       console.log(data)
-      if (data.sucess) {
+      if (data.success) {
         changeForm()
       } else {
         alert(data.message)

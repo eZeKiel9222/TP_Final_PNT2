@@ -19,7 +19,7 @@ export default LoginForm = ({ navigation }) => {
   const handleLogin = () => {
     UserService.Login(Inputlogin, Inputpassword).then(data => {
       console.log(data)
-      if (data.sucess) {
+      if (data.success) {
         setUser(data.message)
         navigation.navigate('Mis Mazos')
       } else {

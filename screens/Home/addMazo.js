@@ -20,7 +20,7 @@ export default ({ navigation, route }) => {
   const handleMazo = () => {
     MazosService.createMazo(nombreMazo, estado, route.params.user, modo).then(data => {
       console.log(data)
-      if (data.sucess) {
+      if (data.success) {
         navigation.navigate('Mazos')
       } else {
         alert(data.message)

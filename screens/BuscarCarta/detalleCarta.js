@@ -33,7 +33,7 @@ export default ({ navigation, route }) => {
       if (mazoAgregar === 'Coleccion') {
         CartaService.addCartaColeccion(user.userInfo.id, data.message.id).then(item => {
           console.log(item)
-          if (item.sucess) {
+          if (item.success) {
             alert('Carta Agregada a Coleccion')
           }
         }).catch(error => {
