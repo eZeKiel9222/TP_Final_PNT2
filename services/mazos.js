@@ -1,7 +1,5 @@
 import { URL } from '@env'
 
-//const BASE_URL = "https://us-central1-api-nt2-ejemplo.cloudfunctions.net/app/api/read"
-
 const getMazos = () => {
   return fetch(`${URL}/api/mazo`)
     .then(res => {

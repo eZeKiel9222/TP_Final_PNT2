@@ -10,7 +10,7 @@ export default ({ mazos, navigation , ruta }) => {
       <View style={{ flexDirection: 'row' }}>
         {item[0]?
         <TouchableOpacity
-          onPress={() => { navigation.navigate(ruta, { mazoId: item[0].id, estado: item[0].privado }) }} >
+          onPress={() => { navigation.navigate(ruta, { mazoId: item[0].id, estado: item[0].privado, title: item[0].nombreMazo }) }} >
           <Mazo mazo={item[0]} />
         </TouchableOpacity>
         :
@@ -18,7 +18,7 @@ export default ({ mazos, navigation , ruta }) => {
   }
   { item[1]?
         <TouchableOpacity
-          onPress={() => { navigation.navigate(ruta, { mazoId: item[1].id, estado: item[1].privado }) }} >
+          onPress={() => { navigation.navigate(ruta, { mazoId: item[1].id, estado: item[1].privado, title: item[1].nombreMazo }) }} >
           <Mazo mazo={item[1]} />
         </TouchableOpacity>
         :

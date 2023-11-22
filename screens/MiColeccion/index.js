@@ -12,10 +12,10 @@ export default ({ navigation }) => {
           headerBackVisible: false,
           headerShown: false
         }} />
-      <StackNavigator.Screen name='Detalle Carta Coleccion' component={detalleCarta} options={
-        {
-
-        }} />
+      <StackNavigator.Screen name='Detalle Carta Coleccion' component={detalleCarta} options={({ route }) => ({
+        headerTitle: route.params && route.params.carta ? route.params.carta.cardName : 'Detalle Carta Buscado',
+      })}
+      />
     </StackNavigator.Navigator>
 
   )

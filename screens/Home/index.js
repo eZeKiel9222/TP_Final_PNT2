@@ -15,15 +15,14 @@ export default ({ navigation }) => {
                               headerBackVisible: false,
                               headerShown: false
                         }} />
-                  <StackNavigator.Screen name='Detalle Mazo' component={detalleMazo} options={
-                        {
-
-                        }} />
-                  <StackNavigator.Screen name='Detalle Carta' component={detalleCarta} options={
-                        {
-
-
-                        }} />
+                  <StackNavigator.Screen name='Detalle Mazo' component={detalleMazo} options={({ route }) => ({
+                        headerTitle: route.params && route.params.title ? route.params.title : 'Detalle Mazo Buscado',
+                  })}
+                  />
+                  <StackNavigator.Screen name='Detalle Carta' component={detalleCarta} options={({ route }) => ({
+                        headerTitle: route.params && route.params.carta ? route.params.carta.cardName : 'Detalle Carta Buscado',
+                  })}
+                  />
                   <StackNavigator.Screen name='Agregar Mazo' component={addMazo} options={
                         {
 

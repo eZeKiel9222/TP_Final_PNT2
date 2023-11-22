@@ -7,23 +7,23 @@ export default ({ cartas, navigation }) => {
 
   const renderCarta = (param) => {
     const { item } = param
-    
+
     return (
-      <View style={{ flexDirection: 'row' }}>
-        {item[0]?
-        <TouchableOpacity
-          onPress={() => { navigation.navigate('Detalle Carta Coleccion', { carta: item[0] }) }} >
-          <CartaColeccion carta={item[0]} style={styles.cartaIcon} />
-        </TouchableOpacity>
-        : <View></View>
-  }
-  {item[1]?
-        <TouchableOpacity
-          onPress={() => { navigation.navigate('Detalle Carta Coleccion', { carta: item[1] }) }} >
-          <CartaColeccion carta={item[1]} style={styles.cartaIcon} />
-        </TouchableOpacity>
-        : <View></View>
-  }
+      <View style={{ flexDirection: 'row', marginLeft: 5 }}>
+        {item[0] ?
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('Detalle Carta Coleccion', { carta: item[0] }) }} >
+            <CartaColeccion carta={item[0]} style={styles.cartaIcon} />
+          </TouchableOpacity>
+          : <View></View>
+        }
+        {item[1] ?
+          <TouchableOpacity
+            onPress={() => { navigation.navigate('Detalle Carta Coleccion', { carta: item[1] }) }} >
+            <CartaColeccion carta={item[1]} style={styles.cartaIcon} />
+          </TouchableOpacity>
+          : <View></View>
+        }
       </View>
     )
   }

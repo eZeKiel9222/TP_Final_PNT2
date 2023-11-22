@@ -8,7 +8,7 @@ export default ({ cartas, navigation, ruta }) => {
     const { item } = param
 
     return (
-      <View style={{ flexDirection: 'row' }}>
+      <View style={{ flexDirection: 'row', marginLeft: 8 }}>
         {item[0]?
         <TouchableOpacity
           onPress={() => { navigation.navigate(ruta, { carta: item[0] }) }} >
