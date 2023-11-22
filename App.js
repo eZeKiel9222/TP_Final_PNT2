@@ -8,6 +8,7 @@ import MiColeccion from './screens/MiColeccion';
 import BuscarMazo from './screens/BuscarMazo';
 import BuscarCarta from './screens/BuscarCarta';
 import Login from './screens/Login';
+import asyncStorage from './services/asyncStorage';
 
 export default function App() {
 
@@ -29,8 +30,23 @@ export default function App() {
   }
 
   useEffect(() => {
-    console.log("Aqui lo levanto la primera vez...")
+    asyncStorage.getData('AuthData').then(data =>{
+      console.log('Mostramos Data cacheada :' ,data)
+      if(data){
+        setUser(data)
+         }
+    })
   }, [])
+
+  useEffect(() => {
+    if(user){
+      console.log('Se carga Cache con Datos')
+      asyncStorage.storeData('AuthData',user)
+    }else{
+      console.log('Se limpia la cache al deslogear')
+      asyncStorage.clearAll()
+    }
+  }, [user])
 
   return (
     <GlobalContext.Provider value={{ SetShowForm, changeForm, changeHome, screenWidth, users, user, setUser, showForm , mazos,setMazos, mazoss,setMazoss }}>
